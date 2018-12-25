@@ -181,7 +181,7 @@ def iou( dt, gt, pyiscrowd ):
             objs = objs.astype(np.double)
         elif type(objs) == list:
             # check if list is in box format and convert it to np.ndarray
-            isbox = np.all(np.array([(len(obj)==4) and ((type(obj)==list) or (type(obj)==np.ndarray)) for obj in objs]))
+            isbox = np.all(np.array([(len(obj)==4) and ((type(obj)==(list or tuple)) or (type(obj)==np.ndarray)) for obj in objs]))
             isrle = np.all(np.array([type(obj) == dict for obj in objs]))
             if isbox:
                 objs = np.array(objs, dtype=np.double)
